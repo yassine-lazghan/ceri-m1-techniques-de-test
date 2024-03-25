@@ -19,8 +19,8 @@ public final class Pokemon extends PokemonMetadata {
 	/** Required candy for upgrading this pokemon. **/
 	private final int candy;
 
-	/** IV perfection percentage. **/
-	private final double iv;
+
+
 	
 	/**
 	 * Default constructor.
@@ -34,7 +34,7 @@ public final class Pokemon extends PokemonMetadata {
 	 * @param hp Pokemon hp.
 	 * @param dust Required dust for upgrading this pokemon.
 	 * @param candy Required candy for upgrading this pokemon.
-	 * @param iv IV perfection percentage.
+	s
 	 */
 	public Pokemon(
 			final int index,
@@ -45,15 +45,16 @@ public final class Pokemon extends PokemonMetadata {
 			final int cp,
 			final int hp,
 			final int dust,
-			final int candy,
-			final double iv) {
+			final int candy) {
 		super(index, name, attack, defense, stamina);
 		this.cp = cp;
 		this.hp = hp;
 		this.dust = dust;
 		this.candy = candy;
-		this.iv = iv;
+
 	}
+
+
 
 	/** Combat Point getter getter. **/
 	public int getCp() {
@@ -76,8 +77,6 @@ public final class Pokemon extends PokemonMetadata {
 	}
 	
 	/** IV getter. **/
-	public double getIv() {
-		return iv;
-	}
+
 	
 }
