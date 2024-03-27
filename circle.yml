@@ -6,12 +6,11 @@ jobs:
       - image: circleci/openjdk:8-jdk
     steps:
       - checkout
-
-      - run: mvn clean test 
-               - run:
-               name: Publish Code Coverage to Codecov
-               command: |
-                 bash <(curl -s https://codecov.io/bash) -t ${codedev}
+      - run: mvn clean test
+      - run:
+          name: Publish Code Coverage to Codecov
+          command: |
+            bash <(curl -s https://codecov.io/bash) -t ${codecov}
 
 workflows:
   version: 2
