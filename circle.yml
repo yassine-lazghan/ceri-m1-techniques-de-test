@@ -6,11 +6,7 @@ jobs:
       - image: circleci/openjdk:8-jdk
     steps:
       - checkout
-      - run:
-          name: Setup JDK 8
-          command: |
-            sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk-8-oracle-x64/bin/java 100
-            sudo update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/jdk-8-oracle-x64/bin/javac 100
+
       - run:
           name: Execute Maven Tests
           command: mvn test
