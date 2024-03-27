@@ -7,9 +7,11 @@ jobs:
     steps:
       - checkout
 
-      - run:
-          name: Execute Maven Tests
-          command: mvn test
+      - run: mvn clean test 
+               - run:
+               name: Publish Code Coverage to Codecov
+               command: |
+                 bash <(curl -s https://codecov.io/bash) -t ${codedev}
 
 workflows:
   version: 2
