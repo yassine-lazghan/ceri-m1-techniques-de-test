@@ -10,7 +10,8 @@ jobs:
     steps:
       - checkout
       - run: mvn clean test
-      - codecov/upload
+      - codecov/upload:
+          file: target/site/jacoco/jacoco.xml
 
 workflows:
   version: 2
