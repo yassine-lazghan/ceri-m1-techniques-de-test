@@ -10,6 +10,8 @@ jobs:
     steps:
       - checkout
       - run: mvn clean test
+        command: |
+          bash <(curl -s https://codecov.io/bash) -t ${YOUR_ENV_VAR_NAME}
       - codecov/upload:
           file: target/site/jacoco/jacoco.xml
 
