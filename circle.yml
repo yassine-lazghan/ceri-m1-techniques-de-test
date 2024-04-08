@@ -9,7 +9,7 @@ jobs:
       - image: circleci/openjdk:8-jdk
     steps:
       - checkout
-      - run: mvn clean test
+      - run: mvn clean package
 
       - codecov/upload:
           file: target/site/jacoco/jacoco.xml
