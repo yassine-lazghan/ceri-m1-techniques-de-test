@@ -10,8 +10,7 @@ jobs:
     steps:
       - checkout
       - run: mvn clean test
-        command: |
-          bash <(curl -s https://codecov.io/bash) -t ${CODECOV_COV}
+
       - codecov/upload:
           file: target/site/jacoco/jacoco.xml
 
@@ -24,3 +23,7 @@ workflows:
             branches:
               only:
                 - master
+  upload-to-codecov:
+    jobs:
+      - checkout
+      - codecov/upload
