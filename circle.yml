@@ -1,22 +1,26 @@
 version: 2.1
 
 orbs:
-  codecov: codecov/codecov@x.y.z  # Replace x.y.z with the latest version
+  codecov: codecov/codecov@4.0.1
 
 jobs:
   build_and_upload_coverage:
     docker:
-      - image: cimg/openjdk:8.0  # Using CircleCI's next-gen image
+      - image: circleci/openjdk:8-jdk
     steps:
       - checkout
-      - run:
-          name: Run Maven Clean and Package  # This name field is optional
-          command: mvn clean package
+      - run: mvn clean test
+        command: |
+          bash <(curl -s https://codecov.io/bash) -t ${CODECOV_COV}
       - codecov/upload:
-          file: target/site/jacoco/jacoco.xml  # Assuming this is the path to your coverage report
+          file: target/site/jacoco/jacoco.xml
 
 workflows:
   version: 2
-  my_workflow:
+  build-and-test:
     jobs:
-      - build_and_upload_coverage
+      - build_and_upload_coverage:
+          filters:
+            branches:
+              only:
+                - master
