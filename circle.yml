@@ -11,7 +11,7 @@ jobs:
       - checkout
       - run: mvn clean test
         command: |
-          bash <(curl -s https://codecov.io/bash) -t ${CODEDEV_COV}
+          bash <(curl -s https://codecov.io/bash) -t ${CODECOV_COV}
       - codecov/upload:
           file: target/site/jacoco/jacoco.xml
 
